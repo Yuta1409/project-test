@@ -4,6 +4,9 @@ import json
 from src.task_manager.manager import TaskManager
 from src.task_manager.task import Task, Priority, Status
 
+import pytest
+
+@pytest.mark.unit
 class TestTaskManagerBasics:
     """Tests basiques du gestionnaire"""
     def setup_method(self):
@@ -42,6 +45,7 @@ class TestTaskManagerBasics:
         task = self.manager.get_task("nonexistent-id")
         assert task is None
 
+@pytest.mark.unit
 class TestTaskManagerFiltering:
     """Tests de filtrage des tâches"""
     def setup_method(self):
@@ -73,6 +77,7 @@ class TestTaskManagerFiltering:
         assert all(task.priority == Priority.MEDIUM for task in tasks if task.title == "Task 2")
         assert all(task.priority == Priority.LOW for task in tasks if task.title == "Task 3")
 
+@pytest.mark.unit
 class TestTaskManagerPersistence:
     """Tests de sauvegarde/chargement avec mocks"""
     def setup_method(self):

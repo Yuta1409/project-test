@@ -3,6 +3,9 @@ from uuid import uuid4
 from datetime import datetime
 from src.task_manager.task import Task, Priority, Status
 
+import pytest
+
+@pytest.mark.unit
 class TestTaskCreation:
     """Test de création de tâche."""
 
@@ -42,6 +45,7 @@ class TestTaskCreation:
         with pytest.raises(ValueError, match="La priorité doit être une instance de Priority."):
             Task(title="Tâche invalide", priority="INVALID_PRIORITY")
 
+@pytest.mark.unit
 class TestTaskOperations:
     """Tests des opérations sur les tâches"""
 
@@ -76,6 +80,7 @@ class TestTaskOperations:
         self.task.assign_to_project(project_id)
         assert self.task.project_id == project_id
 
+@pytest.mark.unit
 class TestTaskSerialization:
     """Tests de sérialisation JSON"""
 
