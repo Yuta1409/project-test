@@ -49,3 +49,7 @@ jobs:
           name: codecov-umbrella
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      # TODO: Demo script
+      - name: Run demo script
+        run: python demo.py
