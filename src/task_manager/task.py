@@ -67,7 +67,7 @@ class Task:
         # TODO: Retournez un dictionnaire pour la sérialisation JSON
         # Gérez la conversion des Enum et datetime
         data = {
-            "id": self.id,
+            "id": str(self.id),
             "title": self.title,
             "description": self.description,
             "priority": self.priority.name,  # Convertit l'Enum en string
