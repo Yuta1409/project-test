@@ -5,16 +5,16 @@ from .task import Task, Priority, Status
 class TaskManager:
     """Gestionnaire principal des tâches."""
     
-    def __init__(self):
+    def __init__(self, storage_file = "tasks.json"):
         # TODO: Initialisez une liste des tâches et le fichier de stockage
         self.tasks: List[Task] = []
-        self.storage_file = "tasks.json"
+        self.storage_file = storage_file
 
   
-    def add_task(self, title, description="", priority=Priority.MEDIUM):
+    def add_task(self, title, description="", priority=Priority.MEDIUM, status=Status.TODO):
         # TODO: Créez et ajoutez une nouvelle tâche
         # TODO: Retournez l'ID de la tâche créée
-        new_task = Task(title, description, priority)
+        new_task = Task(title, description, priority, status)
         self.tasks.append(new_task)
         return new_task.id
 

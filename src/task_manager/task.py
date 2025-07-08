@@ -4,22 +4,22 @@ from enum import Enum
 
 class Priority(Enum):
     # TODO: Définissez les priorités (LOW, MEDIUM, HIGH, URGENT)
-    LOW = 1
-    MEDIUM = 2
-    HIGH = 3
-    URGENT = 4
+    LOW = 'LOW'
+    MEDIUM = 'MEDIUM'
+    HIGH = 'HIGH'
+    URGENT = 'URGENT'
 
 class Status(Enum):
     # TODO: Définissez les statuts (TODO, IN_PROGRESS, DONE, CANCELLED)
-    TODO = "TODO"
-    IN_PROGRESS = "IN_PROGRESS"
-    DONE = "DONE"
-    CANCELLED = "CANCELLED"
+    TODO = 'TODO'
+    IN_PROGRESS = 'IN_PROGRESS'
+    DONE = 'DONE'
+    CANCELLED = 'CANCELLED'
 
 class Task:
     """Une tâche avec toutes ses propriétés."""
 
-    def __init__(self, title, description = "", priority=Priority.MEDIUM):
+    def __init__(self, title, description = "", priority=Priority.MEDIUM, status=Status.TODO):
         # TODO: Validez les paramètres
         # - title non vide
         # - priority est bien une Priority
@@ -27,6 +27,8 @@ class Task:
             raise ValueError("Le titre de la tâche ne peut pas être vide.")
         if not isinstance(priority, Priority):
             raise ValueError("La priorité doit être une instance de Priority.")
+        if not isinstance(status, Status):
+            raise ValueError("Le statut doit être une instance de Status.")
 
         # TODO: Initialisez les attributs
         # - id unique (utilisez time.time() ou uuid)
@@ -38,7 +40,7 @@ class Task:
         self.description = description
         self.priority = priority
         self.created_at = datetime.now()
-        self.status = Status.TODO
+        self.status = status
         self.project_id = None
     
     def mark_completed(self):
