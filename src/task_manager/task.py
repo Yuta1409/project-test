@@ -1,4 +1,5 @@
 from datetime import datetime
+from uuid import uuid4
 from enum import Enum
 
 class Priority(Enum):
@@ -32,7 +33,7 @@ class Task:
         # - created_at avec datetime.now()
         # - status à TODO par défaut
         # - project_id à None
-        self.id = str(uuid.uuid4())
+        self.id = uuid4()
         self.title = title
         self.description = description
         self.priority = priority
@@ -86,6 +87,11 @@ class Task:
         description = data.get("description", "")
         priority = Priority[data.get("priority", "MEDIUM")]
         task = cls(title, description, priority)
-        task.id = data.get("id", str(uuid.uuid4()))
-        task.created_at = datetime.fromisoformat(data.get("created_at", datetime.now().iso
+        task.id = data.get("id", str(uuid4()))
+        task.created_at = datetime.fromisoformat(data.get("created_at", datetime.now().isoformat()))
+        task.status = Status(data.get("status", "TODO"))
+        task.project_id = data.get("project_id")
+        if 'completed_at' in data:
+            task.completed_at = datetime.fromisoformat(data['completed_at'])
+        return task
 
