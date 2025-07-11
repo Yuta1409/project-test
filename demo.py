@@ -10,7 +10,7 @@ def main():
     print("=== Démonstration TaskManager ===\n")
     
     # TODO: Créez un gestionnaire
-    manager = TaskManager("tasks.json")
+    manager = TaskManager("tests/fixtures/sample_data.json")
     print("Gestionnaire de tâches créé.\n")
 
     # TODO: Ajoutez plusieurs tâches avec différentes priorités
@@ -31,10 +31,10 @@ def main():
     print(f"Nombre de tâches terminées : {completed_tasks}\n")
     # TODO: Sauvegardez dans un fichier
     manager.save_to_file()
-    print("Tâches sauvegardées dans 'tasks.json'.\n")
+    print("Tâches sauvegardées dans 'tests/fixtures/sample_data.json'.\n")
     # TODO: Rechargez et vérifiez
     manager.load_from_file()
-    print("Tâches rechargées depuis 'tasks.json'.\n")
+    print("Tâches rechargées depuis 'tests/fixtures/sample_data.json'.\n")
 
     print("Démo terminée avec succès !")
 

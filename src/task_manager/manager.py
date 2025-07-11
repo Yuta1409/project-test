@@ -5,7 +5,7 @@ from .task import Task, Priority, Status
 class TaskManager:
     """Gestionnaire principal des tâches."""
     
-    def __init__(self, storage_file = "tasks.json"):
+    def __init__(self, storage_file = "tests/fixtures/sample_data.json"):
         # TODO: Initialisez une liste des tâches et le fichier de stockage
         self.tasks: List[Task] = []
         self.storage_file = storage_file
