@@ -79,7 +79,6 @@ Les lignes non testées sont généralement celles qui correspondent à :
 - Les exceptions levées lors de la validation des entrées (ex : titre vide, priorité/statut invalide).
 - Les branches d'erreur lors de la lecture/écriture de fichiers (ex : fichier manquant, permissions).
 - Les cas limites dans les services externes (ex : email invalide, erreur SMTP simulée).
-Pour atteindre 95%+, il faut ajouter des tests pour chaque validation, chaque exception, et chaque branche conditionnelle.
 
 ### Quels cas d'erreur manquent ?
 - Création d'une tâche avec un titre vide ou une priorité invalide.
